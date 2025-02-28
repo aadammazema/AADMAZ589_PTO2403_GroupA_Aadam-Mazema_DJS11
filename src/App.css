@@ -1,0 +1,554 @@
+/* =======================================
+   Global Styles
+   ======================================= */
+   :root {
+    --primary-color: #3498db;
+    --secondary-color: #454343;
+    --background-color: #292727;
+    --text-color: #d8d5d5;
+    --textHeader-color: #c6f7ff;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .main-title {
+    color: var(--textHeader-color);
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .return-button,
+  .favorites-button,
+  .addtofavorites {
+    background-color: transparent;
+    color: var(--text-color);
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  }
+  
+  .return-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border: 2px solid var(--textHeader-color);
+    z-index: 100;
+  }
+  
+  .return-button:hover {
+    background-color: var(--textHeader-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+  }
+  
+  .favorites-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: 2px solid var(--primary-color);
+    z-index: 101;
+  }
+  
+  .favorites-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+  }
+  
+  .addtofavorites {
+    border: 2px solid var(--primary-color);
+    margin-left: 10px;
+  }
+  
+  .addtofavorites.added {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
+  
+  .addtofavorites:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+  }
+  
+  /* =======================================
+     Spinner Styles
+     ======================================= */
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+    z-index: 1000;
+  }
+  
+  .spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* =======================================
+     Footer Styles
+     ======================================= */
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .social-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .social-list__item {
+    margin: 0 15px;
+  }
+  
+  .social-list__link {
+    color: var(--text-color);
+    font-size: 30px;
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+  
+  .social-list__link:hover {
+    color: var(--primary-color);
+  }
+  
+  /* =======================================
+     Landing Page Styles
+     ======================================= */
+  .landing-page {
+    background-image: url("./LISTENUPHOME.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .view-all-button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  
+  .view-all-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+  }
+  
+  /* =======================================
+     Search and Sort Section Styles
+     ======================================= */
+  .search-sort-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .search-bar,
+  .sort-bar {
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 60%;
+    max-width: 200px;
+    border-radius: 50px;
+    border: 2px solid var(--textHeader-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 16px;
+  }
+  
+  .search-bar {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .sort-bar {
+    font-size: 16px;
+  }
+  
+  .search-bar:focus,
+  .sort-bar:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);
+  }
+  
+  .search-bar::placeholder,
+  .sort-bar::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+  }
+  
+  /* =======================================
+     Show Card Styles
+     ======================================= */
+  .show-card {
+    width: 220px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    margin: 4px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    border: 1px solid rgb(57, 57, 57);
+    transition: transform 0.1s;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .show-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+  
+  .show-card-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+  
+  .show-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .show-card-content h2 {
+    color: var(--textHeader-color);
+    margin: 8px 0;
+    font-size: 18px;
+  }
+  
+  .show-card-content p {
+    color: var(--text-color);
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .show-card-content {
+    padding: 0 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+  }
+  
+  .show-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  /* =======================================
+     Show Detail Page Styles
+     ======================================= */
+  .show-detail {
+    text-align: center;
+    color: var(--text-color);
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .season-link {
+    text-decoration: none;
+  }
+  
+  .season-title {
+    color: var(--textHeader-color);
+  }
+  
+  .show-detail p {
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  .show-detail img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .show-detail .show-card {
+    margin-bottom: 5px;
+    padding: 15px;
+  }
+  
+  .episodes-list {
+    padding-top: 20px;
+  }
+  
+  .episodes-list ul {
+    padding-left: 20px;
+  }
+  
+  .episodes-list li {
+    margin-bottom: 10px;
+  }
+  
+  /* =======================================
+     Season Styles
+     ======================================= */
+  .season-card {
+    cursor: pointer;
+  }
+  
+  .season-image {
+    max-width: 200px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  /* =======================================
+     Last Updated Box Styles
+     ======================================= */
+  .last-updated-box {
+    background-color: #d3d3d3;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .last-updated-box p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* =======================================
+     Responsive Styles
+     ======================================= */
+  @media (max-width: 768px) {
+    .show-card {
+      width: 180px;
+      height: auto;
+    }
+  
+    .show-detail p {
+      max-width: 90%;
+    }
+  
+    .show-list {
+      justify-content: center;
+    }
+  
+    .show-detail .show-card {
+      width: 100%;
+    }
+  
+    .show-card {
+      margin: 4px;
+    }
+  
+    .last-updated-box p {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .show-card {
+      width: 160px;
+    }
+  
+    .show-detail p {
+      max-width: 95%;
+    }
+  
+    .show-detail .show-card {
+      width: 100%;
+    }
+  
+    .last-updated-box p {
+      font-size: 12px;
+    }
+  }
+  
+  /* =======================================
+     Season Detail Page Styles
+     ======================================= */
+  .show-detail-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .show-detail-page h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .show-detail-page .show-image {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .season-list {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .season-item {
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .season-image {
+    width: 150px;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  .episode-list {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .episode-item {
+    margin-bottom: 10px;
+  }
+  
+  .episode-button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  
+  .episode-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+  }
+  
+  .episode-detail {
+    margin-top: 20px;
+  }
+  
+  .audio-player {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 600px;
+    z-index: 1000;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .stop-button,
+  .play-pause-button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .stop-button:hover {
+    background-color: var(--primary-color);
+    color: black;
+  }
+  
+  .play-pause-button.play {
+    background-color: var(--background-color);
+  }
+  
+  .play-pause-button.pause {
+    background-color: var(--background-color);
+  }
+  
+  .play-pause-button:hover {
+    background-color: var(--primary-color);
+    color: black;
+  }
+  
+  .play-pause-button {
+    margin-left: 10px;
+  }
+  
