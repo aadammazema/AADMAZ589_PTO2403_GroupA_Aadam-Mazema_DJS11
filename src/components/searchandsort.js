@@ -29,7 +29,7 @@ const SearchandSort = ({ shows, setFilteredShows }) => {
 
   React.useEffect(() => {
     setFilteredShows(filteredShows);
-  }, [searchQuery, sortOption, shows, setFilteredShows]);
+  }, [searchQuery, sortOption, shows, setFilteredShows, filteredShows]);  // Add filteredShows here
 
   return (
     <div className="search-sort-container">

@@ -47,7 +47,7 @@ export const AudioProvider = ({ children }) => {
     return () => {
       audioRef.current.pause();
     };
-  }, []);
+  }, [audioRef]);  // Add audioRef as a dependency here
 
   return (
     <AudioContext.Provider
